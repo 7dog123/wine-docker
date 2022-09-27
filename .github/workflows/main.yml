@@ -34,7 +34,13 @@ jobs:
         run: |
           cd docker-wine
           ./build
+          sudo apt-get update
+          sudo apt-get -y install megatools p7zip-full
+          megadl https://mega.nz/#!AOYDkSxA!MuAqt8iRBk0GGbaqaXVYB9tfZxsquKg5QkbCRL3VOLM
+          7z x N64DevKitReleaseCandidate2.7z
+          7z -y x N64DevKitReleaseCandidate2.iso
+          rm -rf *7z *iso
           export WINEPREFIX="~/.wine"
           export WINEARCH="win32"
-          ./docker-wine --local --rm --xvfb --notty winetricks -q vb6run
-          #gecko gdiplus fontfix d3dx9 corefonts mdac_typ dcom98
+          ls
+          #./docker-wine --local --rm --xvfb --notty wineconsole 
