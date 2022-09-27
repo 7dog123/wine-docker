@@ -42,4 +42,5 @@ jobs:
           rm -rf *7z *iso
           export WINEPREFIX="~/.wine"
           export WINEARCH="win32"
-          ./docker-wine --local --rm --xvfb --notty wineconsole install.bat
+          ./docker-wine --local --rm --xvfb --notty winetricks -q vb6run
+          ./docker-wine --local --rm --xvfb --notty wineconsole -q install.bat
