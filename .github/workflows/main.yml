@@ -40,7 +40,5 @@ jobs:
           7z x N64DevKitReleaseCandidate2.7z
           7z -y x N64DevKitReleaseCandidate2.iso
           rm -rf *7z *iso
-          export WINEPREFIX="~/.wine"
-          export WINEARCH="win32"
-          ./docker-wine --local --rm --xvfb --notty winetricks -q vb6run
-          ./docker-wine --local --rm --xvfb --notty wineconsole -q install.bat
+          ./docker-wine --local --rm --xvfb --notty WINEPREFIX="~/.wine" WINEARCH="win32" winetricks -q vb6run
+          ./docker-wine --local --rm --xvfb --notty WINEPREFIX="~/.wine" WINEARCH="win32" wine32 -q install.bat
