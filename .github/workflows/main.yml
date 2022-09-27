@@ -34,4 +34,5 @@ jobs:
         run: |
           cd docker-wine
           ./build
-          ./docker-wine --local --rm --xvfb --notty winetricks -q dotnet40
+          ./docker-wine --local --rm --xvfb --notty winetricks -q vb6run \
+          gecko gdiplus fontfix d3dx9 corefonts mdac_typ dcom98
